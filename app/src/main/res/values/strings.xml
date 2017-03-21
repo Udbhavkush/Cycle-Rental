@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cycle Rental</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register_here">Register here</string>
+    <string name="not_a_member_yet">Not a member yet?</string>
+    <string name="email">Email</string>
+    <string name="password1">Password</string>
+    <string name="string_password1" />
+    <string name="username1">Username</string>
+    <string name="Password">Password</string>
+</resources>
