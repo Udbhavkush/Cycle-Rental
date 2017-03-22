@@ -10,4 +10,6 @@
     <string name="string_password1" />
     <string name="username1">Username</string>
     <string name="Password">Password</string>
+    <string name="name">Name</string>
+    <string name="username2">Username</string>
 </resources>
