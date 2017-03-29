@@ -2,6 +2,7 @@ package com.example.udbhav.cyclerental;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,13 +18,25 @@ public class MainActivity extends Activity{
     String[] itemname ={
             "Cycle1",
             "Cycle2",
-            "Cycle1",
-            "Cycle2",
-            "Cycle1",
-            "Cycle2",
-            "Cycle1",
-            "Cycle2"
+            "Cycle3",
+            "Cycle4",
+            "Cycle5",
+            "Cycle6",
+            "Cycle7",
+            "Cycle8"
     };
+    String[] desc ={
+            "Description of Cycle1",
+            "Description of Cycle2",
+            "Description of Cycle3",
+            "Description of Cycle4",
+            "Description of Cycle5",
+            "Description of Cycle6",
+            "Description of Cycle7",
+            "Description of Cycle8"
+    };
+
+    Integer[] rent={1,2,3,4,5,6,7,8};
 
     Integer[] imgid={
             R.drawable.p1,
@@ -40,10 +53,32 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CustomAdapter adapter=new CustomAdapter(this, itemname, imgid);
+        CycleDatabase cd = new CycleDatabase(MainActivity.this);
+
+
+        cd.open();
+        for(int i=0; i<8; i++) {
+            cd.createEntry(itemname[i], desc[i], rent[i]);
+        }
+        cd.close();
+
+        CustomAdapter adapter=new CustomAdapter(this, itemname, desc, imgid);
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
 
-        
+        list.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+                //String Slecteditem= itemname[+position];
+                //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, SQLView.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 }

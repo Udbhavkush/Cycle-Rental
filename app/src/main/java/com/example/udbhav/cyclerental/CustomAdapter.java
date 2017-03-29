@@ -16,14 +16,16 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] itemname;
+    private final String[] desc;
     private final Integer[] imgid;
 
-    public CustomAdapter(Activity context, String[] itemname, Integer[] imgid) {
+    public CustomAdapter(Activity context, String[] itemname,String[] desc, Integer[] imgid) {
         super(context, R.layout.mylist, itemname);
         // TODO Auto-generated constructor stub
 
         this.context=context;
         this.itemname=itemname;
+        this.desc = desc;
         this.imgid=imgid;
     }
 
@@ -37,8 +39,8 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
         txtTitle.setText(itemname[position]);
         imageView.setImageResource(imgid[position]);
-        extratxt.setText("Description "+itemname[position]);
+        extratxt.setText(desc[position]);
         return rowView;
 
-    };
+    }
 }
