@@ -1,13 +1,10 @@
 package com.example.udbhav.cyclerental;
 
 import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -72,10 +69,9 @@ public class MainActivity extends Activity{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                //String Slecteditem= itemname[+position];
-                //Toast.makeText(getApplicationContext(), Slecteditem, Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this, SQLView.class);
-                startActivity(i);
+                String Selecteditem= itemname[+position];
+                Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();
+
             }
         });
 

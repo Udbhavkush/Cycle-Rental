@@ -61,7 +61,7 @@ public class Login extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
                             if(success){
-                                Intent intent = new Intent(Login.this,MainActivity.class);
+                                Intent intent = new Intent(Login.this,Hours.class);
                                 Login.this.startActivity(intent);
                             }
                             else{
