@@ -1,6 +1,7 @@
 package com.example.udbhav.cyclerental;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -69,8 +70,13 @@ public class MainActivity extends Activity{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                String Selecteditem= itemname[+position];
-                Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();
+
+                Intent i = new Intent(MainActivity.this, CycleBook.class);
+                i.putExtra("Name", itemname[position]);
+
+                startActivity(i);
+                //String Selecteditem= itemname[+position];
+                //Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();
 
             }
         });

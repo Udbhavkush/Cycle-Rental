@@ -69,19 +69,32 @@ public class CycleDatabase {
         return mydatabase.insert(DATABASE_TABLE, null, cv);
     }
 
-    public String getData() {
-        String[] columns = new String[]{C_NAME, C_DESC, C_RENT};
-        Cursor c = mydatabase.query(DATABASE_TABLE, columns, null, null, null, null, null);
-        String result = "";
+    public String getDescription(String name) {
+        String[] columns = {C_DESC};
+        String selection = C_NAME + "=?";
+        String[] selectionArgs = {name};
+        Cursor cursor = mydatabase.query(DATABASE_TABLE, columns, selection,selectionArgs, null, null, null);
+        int idesc = cursor.getColumnIndex(C_DESC);
+        cursor.moveToFirst();
+        String res = "";
+        res = res + cursor.getString(idesc);
+        cursor.close();
+        return res;
 
-        int iname = c.getColumnIndex(C_NAME);
-        int idesc = c.getColumnIndex(C_DESC);
-        int irent = c.getColumnIndex(C_RENT);
+    }
 
-        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            result = result + c.getString(iname) + " " + c.getString(idesc) + " " + c.getString(irent) + "\n";
-        }
-        return result;
+    public int getRent(String name) {
+        String[] columns = {C_RENT};
+        String selection = C_NAME + "=?";
+        String[] selectionArgs = {name};
+        Cursor cursor = mydatabase.query(DATABASE_TABLE, columns, selection,selectionArgs, null, null, null);
+        int idesc = cursor.getColumnIndex(C_RENT);
+        cursor.moveToFirst();
+        int res = 0;
+        res = cursor.getInt(idesc);
+        cursor.close();
+        return res;
+
     }
 
     public void close() {

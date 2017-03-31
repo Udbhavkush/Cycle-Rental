@@ -16,4 +16,7 @@
     <string name="next">next</string>
     <string name="select_the_number_of_hours_you_want_cycle_for">Select the number of hours you want cycle for</string>
     <string name="Next">Next</string>
+    <string name="description">Description</string>
+    <string name="Name">Name</string>
+    <string name="rent">Rent</string>
 </resources>
