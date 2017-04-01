@@ -19,4 +19,7 @@
     <string name="description">Description</string>
     <string name="Name">Name</string>
     <string name="rent">Rent</string>
+    <string name="textviewname">TextView</string>
+    <string name="textviewdesc">TextView</string>
+    <string name="textviewrent">TextView</string>
 </resources>

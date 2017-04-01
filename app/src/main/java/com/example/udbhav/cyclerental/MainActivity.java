@@ -33,18 +33,17 @@ public class MainActivity extends Activity{
             "Description of Cycle7",
             "Description of Cycle8"
     };
-
+    String[] cid={"0","1","2","3","4","5","6","7"};
     Integer[] rent={1,2,3,4,5,6,7,8};
-
     Integer[] imgid={
             R.drawable.p1,
             R.drawable.p2,
-            R.drawable.p1,
-            R.drawable.p2,
-            R.drawable.p1,
-            R.drawable.p2,
-            R.drawable.p1,
-            R.drawable.p2,
+            R.drawable.p3,
+            R.drawable.p4,
+            R.drawable.p5,
+            R.drawable.p6,
+            R.drawable.p7,
+            R.drawable.p8,
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class MainActivity extends Activity{
 
         cd.open();
         for(int i=0; i<8; i++) {
-            cd.createEntry(itemname[i], desc[i], rent[i]);
+            cd.createEntry(cid[i], itemname[i], desc[i], rent[i]);
         }
         cd.close();
 
@@ -72,8 +71,7 @@ public class MainActivity extends Activity{
                 // TODO Auto-generated method stub
 
                 Intent i = new Intent(MainActivity.this, CycleBook.class);
-                i.putExtra("Name", itemname[position]);
-
+                i.putExtra("id", cid[position]);
                 startActivity(i);
                 //String Selecteditem= itemname[+position];
                 //Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();

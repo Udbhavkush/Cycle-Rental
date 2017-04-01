@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -23,12 +24,12 @@ public class CycleBook extends AppCompatActivity {
         Integer[] imgid={
                 R.drawable.p1,
                 R.drawable.p2,
-                R.drawable.p1,
-                R.drawable.p2,
-                R.drawable.p1,
-                R.drawable.p2,
-                R.drawable.p1,
-                R.drawable.p2,
+                R.drawable.p3,
+                R.drawable.p4,
+                R.drawable.p5,
+                R.drawable.p6,
+                R.drawable.p7,
+                R.drawable.p8,
         };
 
 
@@ -37,14 +38,23 @@ public class CycleBook extends AppCompatActivity {
         TextView tvrent = (TextView)findViewById(R.id.tvrent);
 
         Bundle bundle = getIntent().getExtras();
-        String name = bundle.getString("Name");
+        String cid = bundle.getString("id");
         info.open();
-        String desc = info.getDescription(name);
-        String rent = "" + info.getRent(name);
+        String name = info.getName(cid);
+        String desc = info.getDescription(cid);
+        String rent = "" + info.getRent(cid);
         info.close();
         tvname.setText(name);
         tvdesc.setText(desc);
         tvrent.setText(rent);
+
+         ImageView cycle_image = (ImageView) findViewById(R.id.img);
+         int check_img = 0;
+         check_img = Integer.parseInt(cid);
+         cycle_image.setImageResource(imgid[check_img]);
+
+
+
 
     }
 }
