@@ -50,7 +50,7 @@ public class CycleBook extends AppCompatActivity {
 
          ImageView cycle_image = (ImageView) findViewById(R.id.img);
          int check_img = 0;
-         check_img = Integer.parseInt(cid);
+         check_img = Integer.parseInt(cid) - 1;
          cycle_image.setImageResource(imgid[check_img]);
 
 

@@ -33,7 +33,7 @@ public class MainActivity extends Activity{
             "Description of Cycle7",
             "Description of Cycle8"
     };
-    String[] cid={"0","1","2","3","4","5","6","7"};
+    String[] cid={"1","2","3","4","5","6","7","8"};
     Integer[] rent={1,2,3,4,5,6,7,8};
     Integer[] imgid={
             R.drawable.p1,
@@ -54,7 +54,7 @@ public class MainActivity extends Activity{
 
 
         cd.open();
-        for(int i=0; i<8; i++) {
+        for(int i=0; i<imgid.length; i++) {
             cd.createEntry(cid[i], itemname[i], desc[i], rent[i]);
         }
         cd.close();
@@ -69,7 +69,8 @@ public class MainActivity extends Activity{
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-
+                //if(position == cid.length-1)
+                  //  position--;
                 Intent i = new Intent(MainActivity.this, CycleBook.class);
                 i.putExtra("id", cid[position]);
                 startActivity(i);
