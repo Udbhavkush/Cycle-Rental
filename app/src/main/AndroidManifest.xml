@@ -20,7 +20,8 @@
         <activity android:name=".Register" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Hours" />
-        <activity android:name=".CycleBook"></activity>
+        <activity android:name=".CycleBook" />
+        <activity android:name=".Final"></activity>
     </application>
 
 </manifest>

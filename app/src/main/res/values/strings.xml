@@ -22,4 +22,6 @@
     <string name="textviewname">TextView</string>
     <string name="textviewdesc">TextView</string>
     <string name="textviewrent">TextView</string>
+    <string name="book">BOOK</string>
+    <string name="go_back">GO BACK</string>
 </resources>

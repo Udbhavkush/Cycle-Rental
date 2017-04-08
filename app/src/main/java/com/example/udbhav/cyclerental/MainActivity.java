@@ -63,6 +63,9 @@ public class MainActivity extends Activity{
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
 
+        Bundle bundle = getIntent().getExtras();
+        final int hour1 = bundle.getInt("hours");
+
         list.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
@@ -73,6 +76,7 @@ public class MainActivity extends Activity{
                   //  position--;
                 Intent i = new Intent(MainActivity.this, CycleBook.class);
                 i.putExtra("id", cid[position]);
+                i.putExtra("hour1", hour1);
                 startActivity(i);
                 //String Selecteditem= itemname[+position];
                 //Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();

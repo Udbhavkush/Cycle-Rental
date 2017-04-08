@@ -28,10 +28,12 @@ public class Hours extends AppCompatActivity {
                 bthours.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        int val =  picker.getValue();
                         Intent intent = new Intent(Hours.this, MainActivity.class);
+                        intent.putExtra("hours", val);
                         startActivity(intent);
 
-                        int val =  picker.getValue();
+
 
 
                     }
