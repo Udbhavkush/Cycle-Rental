@@ -34,7 +34,7 @@ public class MainActivity extends Activity{
             "A sporty bike for the girls with the front carriage",
             "A basic model for day to day use"
     };
-    
+
     String[] cid={"1","2","3","4","5","6","7","8"};
     Integer[] rent={82,45,38,105,75,30,54,28};
     Integer[] imgid={
@@ -47,11 +47,44 @@ public class MainActivity extends Activity{
             R.drawable.p7,
             R.drawable.p8,
     };
+    String temp;
+    int temp1;
+    void sort(String[] cyclename, String[] desc, String[] cid, Integer[] rent, Integer[] imgid1) {
+        for(int i = 0; i<imgid.length; i++)
+        {
+            for(int j=1; j<imgid.length; j++)
+            {
+                if(cyclename[j-1].compareTo(cyclename[j])>0)
+                {
+                    temp=cyclename[j-1];
+                    cyclename[j-1]=cyclename[j];
+                    cyclename[j]=temp;
+
+                    temp=desc[j-1];
+                    desc[j-1]=desc[j];
+                    desc[j]=temp;
+
+                    temp=cid[j-1];
+                    cid[j-1]=cid[j];
+                    cid[j]=temp;
+
+                    temp1=rent[j-1];
+                    rent[j-1]=rent[j];
+                    rent[j]=temp1;
+
+                    temp1=imgid1[j-1];
+                    imgid1[j-1]=imgid1[j];
+                    imgid1[j]=temp1;
+                }
+            }
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        sort(itemname, desc, cid, rent, imgid);
        final CycleDatabase cd = new CycleDatabase(MainActivity.this);
 
         Bundle bundle = getIntent().getExtras();
