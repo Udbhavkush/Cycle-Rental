@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.support.annotation.IntegerRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,7 +20,7 @@ public class CycleBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cycle_book);
-
+        Log.d("Udbhav", "inside cyclebook class");
         CycleDatabase info;
         info = new CycleDatabase(CycleBook.this);
 
@@ -45,17 +46,19 @@ public class CycleBook extends AppCompatActivity {
         String cid = bundle.getString("id");
         int hours = bundle.getInt("hour1");
 
-
+        Log.d("udbhav", "before laudamethod");
 
         info.open();
+        //info.laudahoonmain();
         String name = info.getName(cid);
         String desc = info.getDescription(cid);
         int irent = info.getRent(cid);
         String rent = "" + irent;
+        //String check = info.getName1(cid);
         info.close();
         tvname.setText(name);
         tvdesc.setText(desc);
-        tvrent.setText(rent);
+       // tvrent.setText(check);
         final int approx_rent = hours * irent;
 
          ImageView cycle_image = (ImageView) findViewById(R.id.img);

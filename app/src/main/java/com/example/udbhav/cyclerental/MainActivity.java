@@ -3,6 +3,7 @@ package com.example.udbhav.cyclerental;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -50,22 +51,39 @@ public class MainActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        CycleDatabase cd = new CycleDatabase(MainActivity.this);
+       final CycleDatabase cd = new CycleDatabase(MainActivity.this);
 
-
+        Bundle bundle = getIntent().getExtras();
+       // final String username = bundle.getString("username");
+        final int hour1 = bundle.getInt("hours");
         cd.open();
+        Log.d("udbhav", "before insertion");
         for(int i=0; i<imgid.length; i++) {
-            cd.createEntry(cid[i], itemname[i], desc[i], rent[i]);
+            if(cd.count(cid[i])){
+                cd.createEntry(cid[i], itemname[i], desc[i], rent[i]);
+            }
+
         }
+
+        //cd.createEntry2("2", "cycle", "udbhav");
+        Log.d("udbhav", "after insertion to table 1");
+       // if(cd.count1("87"))
+         //   cd.createEntry2("87", "cycle", "udbhav");
+
+
         cd.close();
+        //CycleDatabase ab = new CycleDatabase(MainActivity.this);
+        //ab.open();
+
+        //ab.close();
 
         CustomAdapter adapter=new CustomAdapter(this, itemname, desc, imgid);
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
 
-        Bundle bundle = getIntent().getExtras();
-        final int hour1 = bundle.getInt("hours");
 
+
+        Log.d("Udbhav", "before set button");
         list.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
@@ -74,9 +92,15 @@ public class MainActivity extends Activity{
                 // TODO Auto-generated method stub
                 //if(position == cid.length-1)
                   //  position--;
+                Log.d("udbhav", "onItemClick: ");
                 Intent i = new Intent(MainActivity.this, CycleBook.class);
                 i.putExtra("id", cid[position]);
                 i.putExtra("hour1", hour1);
+                //cd.open();
+                //cd.createEntry2(cid[position], itemname[position], username);
+
+                //cd.close();
+                Log.d("udbhav", "starting activity");
                 startActivity(i);
                 //String Selecteditem= itemname[+position];
                 //Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();
