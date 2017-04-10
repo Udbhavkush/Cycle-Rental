@@ -79,6 +79,16 @@ public class CycleDatabase {
         }
     }
 
+    public long delete(){
+       return mydatabase.delete(DATABASE_TABLE1, null, null);
+       /* if (c!=null)
+        {
+            c.moveToFirst();
+            Log.d("anurag", c.getString(0)+"");
+            c.close();
+        }*/
+    }
+
     public CycleDatabase(Context c) {
         context = c;
     }
@@ -221,7 +231,7 @@ public class CycleDatabase {
         if(c.getCount() == 0) return "";
         Log.d("udbhav", "getContent:");
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-            
+
             int iid = c.getColumnIndex(C_ID);
             int iname = c.getColumnIndex(C_NAME);
             int iuname = c.getColumnIndex(U_NAME);
