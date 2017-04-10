@@ -221,8 +221,7 @@ public class CycleDatabase {
         if(c.getCount() == 0) return "";
         Log.d("udbhav", "getContent:");
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
-
-            //for(c.moveToFirst(); c.isLast(); c.moveToNext()) {
+            
             int iid = c.getColumnIndex(C_ID);
             int iname = c.getColumnIndex(C_NAME);
             int iuname = c.getColumnIndex(U_NAME);

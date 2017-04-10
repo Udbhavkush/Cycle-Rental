@@ -55,11 +55,11 @@ public class CycleBook extends AppCompatActivity {
         String desc = info.getDescription(cid);
         int irent = info.getRent(cid);
         String rent = "" + irent;
-        String check = info.getName1(cid);
+        //String check = info.getName1(cid);
         info.close();
         tvname.setText(name);
         tvdesc.setText(desc);
-        tvrent.setText(check);
+        tvrent.setText("Rent per hour for this cycle is " +rent);
         final int approx_rent = hours * irent;
 
          ImageView cycle_image = (ImageView) findViewById(R.id.img);

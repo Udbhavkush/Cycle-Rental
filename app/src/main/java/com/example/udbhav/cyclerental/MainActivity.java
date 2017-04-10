@@ -15,27 +15,28 @@ public class MainActivity extends Activity{
 
     ListView list;
     String[] itemname ={
-            "Cycle1",
-            "Cycle2",
-            "Cycle3",
-            "Cycle4",
-            "Cycle5",
-            "Cycle6",
-            "Cycle7",
-            "Cycle8"
+            "Roadster",
+            "Ladybird",
+            "Kiddo 447",
+            "Turbodrive MTB",
+            "CMX",
+            "Ranger MTB",
+            "Roadeo",
+            "Atlas"
     };
     String[] desc ={
-            "Description of Cycle1",
-            "Description of Cycle2",
-            "Description of Cycle3",
-            "Description of Cycle4",
-            "Description of Cycle5",
-            "Description of Cycle6",
-            "Description of Cycle7",
-            "Description of Cycle8"
+            "A cycle with 18 gears most preferable by mountaineers",
+            "A pretty pink cycle for the ladies who love cycling",
+            "A sports bike for the young enthusiasts in a very affordable price",
+            "An advanced cycle particularly for the speed lovers",
+            "The twin of BMX for the cycle stunts lover",
+            "Another cycle for the young generation",
+            "A sporty bike for the girls with the front carriage",
+            "A basic model for day to day use"
     };
+    
     String[] cid={"1","2","3","4","5","6","7","8"};
-    Integer[] rent={1,2,3,4,5,6,7,8};
+    Integer[] rent={82,45,38,105,75,30,54,28};
     Integer[] imgid={
             R.drawable.p1,
             R.drawable.p2,
@@ -78,9 +79,10 @@ public class MainActivity extends Activity{
 
         //ab.close();
 
-        CustomAdapter adapter=new CustomAdapter(this, itemname, desc, imgid);
+        CustomAdapter adapter=new CustomAdapter(this, itemname, rent, imgid);
         list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
+
 
 
 
