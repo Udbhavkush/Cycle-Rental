@@ -50,7 +50,7 @@ public class CycleBook extends AppCompatActivity {
         Log.d("udbhav", "before laudamethod");
 
         info.open();
-        info.laudahoonmain();
+        info.initialise();
         String name = info.getName(cid);
         String desc = info.getDescription(cid);
         int irent = info.getRent(cid);

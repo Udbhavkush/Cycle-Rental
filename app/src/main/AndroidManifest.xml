@@ -21,7 +21,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Hours" />
         <activity android:name=".CycleBook" />
-        <activity android:name=".Final"></activity>
+        <activity android:name=".Final" />
+        <activity android:name=".TableBooked"></activity>
     </application>
 
 </manifest>

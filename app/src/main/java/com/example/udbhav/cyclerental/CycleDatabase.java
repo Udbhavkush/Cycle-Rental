@@ -42,13 +42,6 @@ public class CycleDatabase {
         public void onCreate(SQLiteDatabase db) {
 
             Log.d("udbhav", "before creating tables");
-            /*db.execSQL(
-                    "CREATE TABLE " + DATABASE_TABLE + "("
-                    + C_ID + " TEXT PRIMARY KEY, "
-                    + C_NAME + " TEXT NOT NULL, "
-                    + C_DESC + " TEXT NOT NULL, "
-                    + C_RENT + " INTEGER NOT NULL);"
-            );*/
 
             db.execSQL(
                     "CREATE TABLE " + DATABASE_TABLE1 + "("
@@ -75,7 +68,7 @@ public class CycleDatabase {
         }
     }
 
-    public void laudahoonmain(){
+    public void initialise(){
         String query="SELECT * FROM "+DATABASE_TABLE1+";";
         Cursor c = dbHelper.getWritableDatabase().rawQuery(query,null);
         if (c!=null)
@@ -219,22 +212,27 @@ public class CycleDatabase {
 
     }*/
 
-/*
+
     public String getContent() {
-        String[] columns = {C_ID,C_NAME, C_DESC};
-        Cursor c = mydatabase.query(DATABASE_TABLE, columns, null, null, null, null, null );
+        String[] columns = {C_ID,C_NAME, U_NAME};
+        Cursor c = mydatabase.query(DATABASE_TABLE1, columns, null, null, null, null, null );
         String res = "";
-        c.moveToLast();
-        //for(c.moveToFirst(); c.isLast(); c.moveToNext()) {
+        c.moveToFirst();
+        if(c.getCount() == 0) return "";
+        Log.d("udbhav", "getContent:");
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+
+            //for(c.moveToFirst(); c.isLast(); c.moveToNext()) {
             int iid = c.getColumnIndex(C_ID);
             int iname = c.getColumnIndex(C_NAME);
-            int idesc = c.getColumnIndex(C_DESC);
-            res = res +" " + c.getString(iname) + " " + c.getString(idesc) + " " + c.getString(iid);
+            int iuname = c.getColumnIndex(U_NAME);
+            res = res +"\t\t\t\t\t\t\t\t\t\t" + c.getString(iid)+ "\t\t\t\t\t\t\t\t\t\t\t"+ c.getString(iname) + "\t\t\t\t\t\t\t\t\t\t\t" + c.getString(iuname)  + "\n";
+        }
         c.close();
         return res;
 
     }
-*/
+
     public void close() {
         dbHelper.close();
     }

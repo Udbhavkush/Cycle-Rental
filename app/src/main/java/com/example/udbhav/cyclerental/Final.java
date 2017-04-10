@@ -13,7 +13,7 @@ public class Final extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
-
+        Button bttable = (Button)findViewById(R.id.bttable);
         TextView tvconfirm = (TextView)findViewById(R.id.tvconfirm);
         String final_message = "Your cycle has been booked successfully!";
         tvconfirm.setText(final_message);
@@ -25,9 +25,18 @@ public class Final extends AppCompatActivity {
         String message = "Approximate rent will be Rs " + final_rent;
 
 
+
         tvappRent.setText(message);
 
         Button btback = (Button)findViewById(R.id.btback);
+
+        bttable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Final.this, TableBooked.class);
+                startActivity(i);
+            }
+        });
 
         btback.setOnClickListener(new View.OnClickListener() {
             @Override

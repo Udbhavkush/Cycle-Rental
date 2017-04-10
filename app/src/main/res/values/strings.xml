@@ -24,4 +24,11 @@
     <string name="textviewrent">TextView</string>
     <string name="book">BOOK</string>
     <string name="go_back">GO BACK</string>
+    <string name="title_activity_hours2">Hours2</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="cycle_booked">CYCLE BOOKED</string>
 </resources>
