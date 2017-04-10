@@ -19,7 +19,8 @@ public class Hours extends AppCompatActivity {
 
         final Button bthours = (Button)findViewById(R.id.bthours);
         Bundle b = getIntent().getExtras();
-        //final String username = b.getString("username");
+        final String username = b.getString("username");
+        Log.d("hours", username);
 
         final NumberPicker numberPicker = (NumberPicker)findViewById(R.id.numberPicker);
         numberPicker.setMaxValue(100);
@@ -35,7 +36,7 @@ public class Hours extends AppCompatActivity {
                         int val =  picker.getValue();
                         Intent intent = new Intent(Hours.this, MainActivity.class);
                         intent.putExtra("hours", val);
-          //              intent.putExtra("username", username);
+                        intent.putExtra("username", username);
                         startActivity(intent);
 
 

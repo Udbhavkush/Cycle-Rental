@@ -121,7 +121,7 @@ public class CycleDatabase {
         String[] selectionArgs = {cid};
         Cursor cursor = mydatabase.query(DATABASE_TABLE, columns, selection, selectionArgs, null, null, null);
         int iname = cursor.getColumnIndex(C_NAME);
-        //if(cursor.getCount() == 0) return "";
+        if(cursor.getCount() == 0) return "";
         cursor.moveToFirst();
         String res = "";
         res = res + cursor.getString(iname);
@@ -136,7 +136,7 @@ public class CycleDatabase {
         String[] selectionArgs = {cid};
         Cursor cursor = mydatabase.query(DATABASE_TABLE, columns, selection, selectionArgs, null, null, null);
         int idesc = cursor.getColumnIndex(C_DESC);
-        //if(cursor.getCount() == 0) return "";
+        if(cursor.getCount() == 0) return "";
         cursor.moveToFirst();
         String res = "";
         res = res + cursor.getString(idesc);
@@ -151,7 +151,7 @@ public class CycleDatabase {
         String[] selectionArgs = {cid};
         Cursor cursor = mydatabase.query(DATABASE_TABLE, columns, selection,selectionArgs, null, null, null);
         int irent = cursor.getColumnIndex(C_RENT);
-        //if (cursor.getCount() == 0) return 0;
+        if (cursor.getCount() == 0) return 0;
         cursor.moveToFirst();
         int res = 0;
         res = cursor.getInt(irent);

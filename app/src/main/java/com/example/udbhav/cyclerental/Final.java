@@ -20,8 +20,10 @@ public class Final extends AppCompatActivity {
 
         TextView tvappRent = (TextView)findViewById(R.id.tvappRent);
         Bundle b = getIntent().getExtras();
+        final  String username = b.getString("username");
         String final_rent = "" + b.getInt("finalRent");
         String message = "Approximate rent will be Rs " + final_rent;
+
 
         tvappRent.setText(message);
 
@@ -31,6 +33,7 @@ public class Final extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i_back = new Intent(Final.this, Hours.class);
+                i_back.putExtra("username", username);
                 startActivity(i_back);
             }
         });

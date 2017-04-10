@@ -23,7 +23,8 @@ public class CycleBook extends AppCompatActivity {
         Log.d("Udbhav", "inside cyclebook class");
         CycleDatabase info;
         info = new CycleDatabase(CycleBook.this);
-
+        Bundle b = getIntent().getExtras();
+        final String username = b.getString("username");
 
         Integer[] imgid={
                 R.drawable.p1,
@@ -49,16 +50,16 @@ public class CycleBook extends AppCompatActivity {
         Log.d("udbhav", "before laudamethod");
 
         info.open();
-        //info.laudahoonmain();
+        info.laudahoonmain();
         String name = info.getName(cid);
         String desc = info.getDescription(cid);
         int irent = info.getRent(cid);
         String rent = "" + irent;
-        //String check = info.getName1(cid);
+        String check = info.getName1(cid);
         info.close();
         tvname.setText(name);
         tvdesc.setText(desc);
-       // tvrent.setText(check);
+        tvrent.setText(check);
         final int approx_rent = hours * irent;
 
          ImageView cycle_image = (ImageView) findViewById(R.id.img);
@@ -71,6 +72,7 @@ public class CycleBook extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i_final = new Intent(CycleBook.this, Final.class);
                 i_final.putExtra("finalRent", approx_rent);
+                i_final.putExtra("username", username);
                 startActivity(i_final);
             }
         });

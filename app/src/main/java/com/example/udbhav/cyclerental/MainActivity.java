@@ -54,7 +54,8 @@ public class MainActivity extends Activity{
        final CycleDatabase cd = new CycleDatabase(MainActivity.this);
 
         Bundle bundle = getIntent().getExtras();
-       // final String username = bundle.getString("username");
+        final String username = bundle.getString("username");
+        Log.d("udk", username);
         final int hour1 = bundle.getInt("hours");
         cd.open();
         Log.d("udbhav", "before insertion");
@@ -96,11 +97,13 @@ public class MainActivity extends Activity{
                 Intent i = new Intent(MainActivity.this, CycleBook.class);
                 i.putExtra("id", cid[position]);
                 i.putExtra("hour1", hour1);
-                //cd.open();
-                //cd.createEntry2(cid[position], itemname[position], username);
+                cd.open();
+                if(cd.count1(cid[position]))
+                cd.createEntry2(cid[position], itemname[position], username);
 
-                //cd.close();
+                cd.close();
                 Log.d("udbhav", "starting activity");
+                i.putExtra("username", username);
                 startActivity(i);
                 //String Selecteditem= itemname[+position];
                 //Toast.makeText(getApplicationContext(), Selecteditem, Toast.LENGTH_SHORT).show();
